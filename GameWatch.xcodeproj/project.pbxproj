@@ -41,6 +41,16 @@
 		33B033AE2EDF5B1F00C013AA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DCAA5FC02EE197EE00000052 /* Exceptions for "GameWatch Watch App" folder in "GameWatch" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Connectivity.swift,
+			);
+			target = 33B0338C2EDF5ACF00C013AA /* GameWatch */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		33B0338F2EDF5ACF00C013AA /* GameWatch */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -49,6 +59,9 @@
 		};
 		33B0339E2EDF5AD100C013AA /* GameWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DCAA5FC02EE197EE00000052 /* Exceptions for "GameWatch Watch App" folder in "GameWatch" target */,
+			);
 			path = "GameWatch Watch App";
 			sourceTree = "<group>";
 		};
@@ -345,7 +358,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FNQ87MKBKT;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
@@ -378,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FNQ87MKBKT;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
@@ -412,7 +425,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FNQ87MKBKT;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
@@ -447,7 +460,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FNQ87MKBKT;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
