@@ -7,46 +7,19 @@
 
 import Foundation
 
-enum GameDifficulty: Int {
-    case easy
-    case medium
-    case hard
-}
-
 struct Game: Identifiable, Codable {
     let id: UUID
     let duration: TimeInterval
     let name: String
-    let steps: [GameStep]
+    var steps: [GameStep]
+    let secretCode: [Major]
+    var hasKey: Bool = false
     
-    init(id: UUID, duration: TimeInterval, name: String, steps: [GameStep]) {
-        self.id = id
+    init(duration: TimeInterval, name: String, steps: [GameStep], secretCode: [Major]) {
+        self.id = UUID()
         self.duration = duration
         self.name = name
         self.steps = steps
+        self.secretCode = secretCode
     }
-}
-
-struct GameOptions {
-    var soundEnabled: Bool
-}
-
-struct GameStep: Identifiable, Codable {
-    let id: UUID
-    let name: String
-    let instruction: String
-    
-    let type: MiniGameType
-    
-    let rewardClue: Clue?
-}
-
-struct Clue: Identifiable, Codable {
-    let id: UUID
-    let text: String
-    let image: String?
-}
-
-enum MiniGameType: String, Codable {
-    case finalLock
 }

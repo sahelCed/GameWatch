@@ -13,7 +13,7 @@ struct HomeHeaderView: View {
             Text("ESCAPE ESGI")
                 .font(.largeTitle)
                 .fontDesign(.rounded)
-                .foregroundStyle(.teal)
+                .foregroundStyle(.white)
                 .padding()
             
             Image(.logo)

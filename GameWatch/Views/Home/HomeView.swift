@@ -13,6 +13,8 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
+                Color.esgi
+                .ignoresSafeArea()
                 HomeBackgroundView()
                 
                 VStack {

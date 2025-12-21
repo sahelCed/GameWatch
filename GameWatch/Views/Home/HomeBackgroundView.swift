@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeBackgroundView: View {
     
     var body: some View {
-        Color.black.ignoresSafeArea()
             
         BackgroundAnimationView(
             characters: EntityConfig(size: CGSize(width: 120, height: 80)),

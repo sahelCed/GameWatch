@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            Image(.logo)
+            Image("logo.png")
                 .resizable()
                 .scaledToFill()
                 .opacity(viewModel.isPulsing ? 0.33 : 1)

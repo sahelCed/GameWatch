@@ -49,11 +49,46 @@
 			);
 			target = 33B0338C2EDF5ACF00C013AA /* GameWatch */;
 		};
+		DCD174A72EF37DE600F76903 /* Exceptions for "GameWatch" folder in "GameWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Enums/BubbleDirection.swift,
+				Enums/GameDifficulty.swift,
+				Enums/Major.swift,
+				Enums/MiniGameType.swift,
+				Extensions/ColorExtension.swift,
+				Extensions/TimeIntervalExtension.swift,
+				Factory/ClueFactory.swift,
+				Factory/GameFactory.swift,
+				Factory/MiniGameFactory.swift,
+				Factory/SecretCodeFactory.swift,
+				models/Clue.swift,
+				models/EntityConfig.swift,
+				models/Game.swift,
+				models/GameOptions.swift,
+				models/GameStep.swift,
+				models/MiniGame.swift,
+				models/Room.swift,
+				models/RoomLocation.swift,
+				Repository/RoomsRepository.swift,
+				ViewModels/GameViewModel.swift,
+				Views/Game/GameContextView.swift,
+				Views/Game/GameMainView.swift,
+				Views/Game/GameRootView.swift,
+				Views/Game/RoomView.swift,
+				Views/Game/SpeechBubble/SpeechBubbleView.swift,
+				Views/Game/SpeechBubble/UniversalBubbleShape.swift,
+			);
+			target = 33B033992EDF5AD100C013AA /* GameWatch Watch App */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		33B0338F2EDF5ACF00C013AA /* GameWatch */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DCD174A72EF37DE600F76903 /* Exceptions for "GameWatch" folder in "GameWatch Watch App" target */,
+			);
 			path = GameWatch;
 			sourceTree = "<group>";
 		};
@@ -161,7 +196,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					33B0338C2EDF5ACF00C013AA = {
 						CreatedOnToolsVersion = 26.1.1;
@@ -269,6 +304,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = FNQ87MKBKT;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -292,6 +328,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -331,6 +368,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FNQ87MKBKT;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -347,6 +385,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
