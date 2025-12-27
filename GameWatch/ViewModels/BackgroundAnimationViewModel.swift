@@ -113,7 +113,6 @@ extension BackgroundAnimationView {
                 }
             }
             
-            // Boucle : on relance à la fin
             let nextRunDelay = self.duration + 1.0
             DispatchQueue.main.asyncAfter(deadline: .now() + nextRunDelay) {
                 if self.isRandomMode && !self.shouldStop {

@@ -12,6 +12,16 @@ struct GameStep: Identifiable, Codable {
     var id: UUID = UUID()
     var miniGame: MiniGame
     let room: Room
-    
     let rewardClue: Clue?
+}
+
+
+extension GameStep: Hashable {
+    static func == (lhs: GameStep, rhs: GameStep) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

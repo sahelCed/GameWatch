@@ -10,5 +10,6 @@ import Foundation
 struct Room: Identifiable, Codable {
     var id: UUID = UUID()
     var name: String
+    let backgroundImageName: String
     let roomLocation: RoomLocation
 }

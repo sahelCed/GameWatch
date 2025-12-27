@@ -22,11 +22,10 @@ struct GameMapView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: geo.size.width, height: geo.size.height)
-                        .overlay(Color.black.opacity(0.2))
                 
                     ForEach(viewModel.game.steps) { step in
                             let location = step.room.roomLocation
-                            RoomView(step: step) {
+                            MapRoomView(step: step) {
                                 selectedStep = step
                             }
                             .frame(
@@ -36,15 +35,8 @@ struct GameMapView: View {
                             .position(
                                 x: geo.size.width * location.centerXRelativeToWidth,
                                 y: geo.size.height * location.centerYRelativeToHeight
-                            )
-                        
-                    }
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                        }
-                    }
+                            ) 
+                    } 
                 }
             }
             .background(Color.black.ignoresSafeArea())
@@ -53,13 +45,7 @@ struct GameMapView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .sheet(item: $selectedStep) { step in
-                VStack {
-                    Text(step.miniGame.name)
-                        .presentationDetents([.medium, .large])
-                        .frame(alignment: .top)
-                    Text(step.miniGame.instruction)
-                }
-                
+                RoomView(viewModel: viewModel, stepId: step.id)
             }
         }
     }

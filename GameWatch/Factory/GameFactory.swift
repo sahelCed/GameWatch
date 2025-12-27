@@ -32,7 +32,8 @@ class GameFactory {
             duration: duration,
             name: name,
             steps: steps,
-            secretCode: secretCode
+            secretCode: secretCode,
+            options: options
         )
     }
     

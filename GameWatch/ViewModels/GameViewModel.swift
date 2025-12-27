@@ -25,14 +25,17 @@ class GameViewModel {
     }
     
     func completeStep(step: UUID) {
-        if let index = game.steps.firstIndex(where: { $0.id == step}) {
-            game.steps[index].miniGame.isCompleted.toggle()
+        if let index = game.steps.firstIndex(where: { $0.id == step }) {
+            
+            let type = game.steps[index].miniGame.type
+            
+            if type == .exit {
+                if game.hasKey {
+                    game.steps[index].miniGame.isCompleted = true
+                }
+            } else {
+                game.steps[index].miniGame.isCompleted = true
+            }
         }
-    }
-    
-    var unlockedClues: [Clue] {
-        return game.steps
-            .filter { $0.miniGame.isCompleted }
-            .compactMap { $0.rewardClue } // On récupère les indices non-nil
     }
 }

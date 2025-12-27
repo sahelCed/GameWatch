@@ -13,13 +13,15 @@ struct Game: Identifiable, Codable {
     let name: String
     var steps: [GameStep]
     let secretCode: [Major]
+    let options: GameOptions
     var hasKey: Bool = false
     
-    init(duration: TimeInterval, name: String, steps: [GameStep], secretCode: [Major]) {
+    init(duration: TimeInterval, name: String, steps: [GameStep], secretCode: [Major], options: GameOptions) {
         self.id = UUID()
         self.duration = duration
         self.name = name
         self.steps = steps
         self.secretCode = secretCode
+        self.options = options
     }
 }

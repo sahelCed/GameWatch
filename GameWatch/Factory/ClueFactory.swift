@@ -8,12 +8,12 @@
 struct ClueFactory {
     
     private static let uselessCluesData: [(text: String, image: String?)] = [
-        ("Il semblerait que vous soyez tombé sur sa routine capillaire... C'est un papier vide.", "paper_empty"),
-        ("Dommage, encore une paire de lunettes de rechange... Mais combien en a-t-il ????", "glasses_stack"),
+        ("Il semblerait que vous soyez tombé sur sa routine capillaire... C'est un papier vide.", "capilar_routine"),
+        ("Dommage, encore des paires de lunettes de rechange... Mais combien en a-t-il ????", "replacement_glasses"),
         ("Un ticket de caisse pour 50 litres de café. Date : Hier.", "coffee_receipt"),
-        ("Une note griffonnée : 'Idée de punition : Faire coder en assembleur sur papier'.", nil),
-        ("Une photo de vacances... Il porte aussi un costume à la plage.", "photo_vacation"),
-        ("Un plan pour conquérir le monde... raturé et remplacé par 'Réussir la rentrée'.", nil)
+        ("Une note griffonnée : 'Idée de punition : Faire coder en assembleur sur papier'.", "punishement_idea"),
+        ("Une photo de vacances...", "vacation_picture"),
+        ("Un plan pour conquérir le monde... raturé et remplacé par 'Terroriser les nouvelles rentrée'.", "world_domination")
     ]
     
     static func generateUselessClue() -> Clue {
