@@ -36,11 +36,15 @@ struct GameMapView: View {
                                 x: geo.size.width * location.centerXRelativeToWidth,
                                 y: geo.size.height * location.centerYRelativeToHeight
                             ) 
-                    } 
+                    }
                 }
             }
             .background(Color.black.ignoresSafeArea())
-            .navigationTitle(viewModel.game.name)
+            .navigationTitle(
+                Text(viewModel.getTimer())
+                    .foregroundStyle(.white)
+                    .font(.title)
+            )
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)

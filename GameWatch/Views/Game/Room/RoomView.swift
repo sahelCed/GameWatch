@@ -20,7 +20,7 @@ struct RoomView: View {
         NavigationStack {
             GeometryReader { geo in
                 VStack {
-                    Text("Time left")
+                    Text(viewModel.getTimer())
                         .foregroundStyle(.white)
                         .font(.title)
                     

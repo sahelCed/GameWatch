@@ -17,11 +17,11 @@ class GameFactory {
         
         switch difficulty {
             case .easy:
-                duration = .minutes(10)
+                duration = .minutes(5)
             case .medium:
-                duration = .minutes(6)
-            case .hard:
                 duration = .minutes(3)
+            case .hard:
+                duration = .minutes(2)
         }
         
         let steps = generateSteps(

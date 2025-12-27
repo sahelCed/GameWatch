@@ -14,14 +14,42 @@ class GameViewModel {
     var currentStepIndex: Int = 0
     var isGameStarted: Bool = false
     var timeRemaining: TimeInterval
+    
+    var timer: Timer?
         
     init(game: Game) {
         self.game = game
         self.timeRemaining = game.duration
     }
     
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     func startGame() {
+        stopTimer()
+        
         isGameStarted = true
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.updateTimer()
+        }
+    }
+    
+    private func updateTimer() {
+        if timeRemaining > 0 {
+            timeRemaining -= 1
+        } else {
+            stopTimer()
+            print("Temps écoulé !") //game over to implement
+        }
+    }
+    
+    func getTimer() -> String {
+        let minutes = Int(timeRemaining / 60)
+        let seconds = Int(timeRemaining) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
     
     func completeStep(step: UUID) {
@@ -32,6 +60,7 @@ class GameViewModel {
             if type == .exit {
                 if game.hasKey {
                     game.steps[index].miniGame.isCompleted = true
+                    stopTimer()
                 }
             } else {
                 game.steps[index].miniGame.isCompleted = true
