@@ -14,14 +14,18 @@ class GameFactory {
         var clues = ClueFactory.generateClues(from: secretCode)
         
         let duration: TimeInterval
+        let penality: Double
         
         switch difficulty {
             case .easy:
                 duration = .minutes(5)
+                penality = 0
             case .medium:
                 duration = .minutes(3)
+                penality = 10
             case .hard:
-                duration = .minutes(2)
+            duration = .minutes(2) - (.minutes(2) - 10)
+                penality = 30
         }
         
         let steps = generateSteps(
@@ -33,7 +37,8 @@ class GameFactory {
             name: name,
             steps: steps,
             secretCode: secretCode,
-            options: options
+            options: options,
+            penality: penality
         )
     }
     

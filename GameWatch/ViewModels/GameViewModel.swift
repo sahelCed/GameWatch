@@ -10,7 +10,7 @@ import Foundation
 @Observable
 class GameViewModel {
     var game: Game
-        
+    var gameState: GameState = .playing
     var currentStepIndex: Int = 0
     var isGameStarted: Bool = false
     var timeRemaining: TimeInterval
@@ -37,12 +37,16 @@ class GameViewModel {
         }
     }
     
+    func applyPenality() {
+        timeRemaining -= game.penality
+    }
+    
     private func updateTimer() {
         if timeRemaining > 0 {
             timeRemaining -= 1
         } else {
             stopTimer()
-            print("Temps écoulé !") //game over to implement
+            gameState = .lost
         }
     }
     
@@ -51,6 +55,7 @@ class GameViewModel {
         let seconds = Int(timeRemaining) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+    
     
     func completeStep(step: UUID) {
         if let index = game.steps.firstIndex(where: { $0.id == step }) {
@@ -61,6 +66,7 @@ class GameViewModel {
                 if game.hasKey {
                     game.steps[index].miniGame.isCompleted = true
                     stopTimer()
+                    gameState = .won
                 }
             } else {
                 game.steps[index].miniGame.isCompleted = true

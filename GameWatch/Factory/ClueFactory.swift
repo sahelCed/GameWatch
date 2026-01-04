@@ -31,7 +31,7 @@ struct ClueFactory {
             let firstMajor = secretCode[0]
             let clue1 = Clue(
                 text: "C'est officiel : Sananes a déclaré que la filière \(firstMajor.fullName) est la numéro 1 cette année !",
-                image: "trophy_\(firstMajor.rawValue)"
+                image: nil
             )
             generatedClues.append(clue1)
             
@@ -47,7 +47,7 @@ struct ClueFactory {
             if let lastMajor = secretCode.last {
                 let clueLast = Clue(
                     text: "Mauvaise nouvelle... La filière \(lastMajor.fullName) a fini dernière du classement.",
-                    image: "poubelle_generic"
+                    image: nil
                 )
                 generatedClues.append(clueLast)
             }
