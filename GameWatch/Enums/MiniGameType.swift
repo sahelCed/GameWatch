@@ -9,6 +9,7 @@
 enum MiniGameType: String, Codable, CaseIterable {
     case finalLock
     case simonSays
+    case labyrinth
     case search
     case exit
     

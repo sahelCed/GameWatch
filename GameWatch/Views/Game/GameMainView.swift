@@ -40,11 +40,7 @@ struct GameMapView: View {
                 }
             }
             .background(Color.black.ignoresSafeArea())
-            .navigationTitle(
-                Text(viewModel.getTimer())
-                    .foregroundStyle(.white)
-                    .font(.title)
-            )
+            .navigationTitle(viewModel.getTimer())
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)

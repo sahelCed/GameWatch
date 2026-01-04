@@ -41,7 +41,7 @@ struct RoomView: View {
             }
             .background(Color.black.ignoresSafeArea())
             .navigationDestination(for: GameStep.self) { targetStep in
-                
+                viewForMiniGame(game: viewModel, step: targetStep, viewModel: viewModel)
             }
         }
     }

@@ -14,6 +14,8 @@ func viewForMiniGame(game: GameViewModel, step: GameStep, viewModel: GameViewMod
         Text("Vue Simon Says à implémenter")
     case .finalLock:
         Text("final lock to implement")
+    case .labyrinth:
+        LabyrinthView(gameViewModel: viewModel, stepId: step.id)
     default:
         Text("Jeu inconnu")
     }
