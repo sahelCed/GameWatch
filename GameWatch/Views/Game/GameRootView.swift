@@ -17,7 +17,12 @@ struct GameRootView: View {
     var body: some View {
         Group {
             if viewModel.isGameStarted {
-                GameMapView(viewModel: viewModel)
+                switch viewModel.gameState {
+                case .playing:
+                    GameMapView(viewModel: viewModel)
+                case .lost, .won:
+                    GameOverView(viewModel: viewModel)
+                }
             } else {
                 GameContextView(viewModel: viewModel)
             }
