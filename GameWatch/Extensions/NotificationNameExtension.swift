@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static let labyrinthMove = Notification.Name("LabyrinthMoveNotification")
+    static let watchGameMessage = Notification.Name("WatchGameMessageNotification")
 }

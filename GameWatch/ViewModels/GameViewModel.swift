@@ -32,6 +32,12 @@ class GameViewModel {
         
         isGameStarted = true
         
+        Connectivity.shared.send([
+            LabyrinthMessageKeys.action: LabyrinthMessageKeys.gameStartAction,
+            LabyrinthMessageKeys.playerName: game.name,
+            LabyrinthMessageKeys.timeRemaining: timeRemaining
+        ])
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.updateTimer()
         }
@@ -40,6 +46,11 @@ class GameViewModel {
     private func updateTimer() {
         if timeRemaining > 0 {
             timeRemaining -= 1
+            // Envoyer la mise à jour du timer à la Watch
+            Connectivity.shared.send([
+                LabyrinthMessageKeys.action: LabyrinthMessageKeys.timerUpdateAction,
+                LabyrinthMessageKeys.timeRemaining: timeRemaining
+            ])
         } else {
             stopTimer()
             print("Temps écoulé !") //game over to implement

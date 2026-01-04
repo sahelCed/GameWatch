@@ -29,20 +29,58 @@ struct LabyrinthGrid: Codable {
         return tiles[position.y][position.x]
     }
     
-    static var sample: LabyrinthGrid {
+    static var level1: LabyrinthGrid {
         let layout: [String] = [
             "########",
-            "#S....#",
-            "#.##..#",
-            "#..#..#",
-            "##.#.##",
-            "#..#..#",
-            "#...E.#",
+            "#S....##",
+            "#.##..##",
+            "#..#..##",
+            "##.#..##",
+            "#..#..##",
+            "#...E.##",
             "########"
         ]
+        return LabyrinthGrid.fromLayout(layout)
+    }
+    
+    static var level2: LabyrinthGrid {
+        let layout: [String] = [
+            "##########",
+            "#S.#....##",
+            "#.##.##.##",
+            "#....##.##",
+            "####.##.##",
+            "#....##.##",
+            "#.####..##",
+            "#.......##",
+            "####.##E##",
+            "##########"
+        ]
+        return LabyrinthGrid.fromLayout(layout)
+    }
+    
+    static var level3: LabyrinthGrid {
+        let layout: [String] = [
+            "############",
+            "#S.#.....###",
+            "#.##.###.###",
+            "#....###...#",
+            "####.###.#.#",
+            "#....###.#.#",
+            "#.####...#.#",
+            "#.#####.##.#",
+            "#.......##.#",
+            "####.####..#",
+            "#........E.#",
+            "############"
+        ]
+        return LabyrinthGrid.fromLayout(layout)
+    }
+    
+    private static func fromLayout(_ layout: [String]) -> LabyrinthGrid {
         var tiles: [[LabyrinthTile]] = []
         var start = LabyrinthPosition(x: 1, y: 1)
-        var exit = LabyrinthPosition(x: 4, y: 6)
+        var exit = LabyrinthPosition(x: 1, y: 1)
         
         for (y, row) in layout.enumerated() {
             var line: [LabyrinthTile] = []
@@ -75,11 +113,14 @@ final class LabyrinthViewModel {
     private(set) var grid: LabyrinthGrid
     private(set) var playerPosition: LabyrinthPosition
     private(set) var isFinished: Bool = false
+    private(set) var currentLevel: Int = 1
+    let maxLevels: Int = 3
     
-    init(grid: LabyrinthGrid = .sample) {
+    init(grid: LabyrinthGrid = .level1) {
         self.grid = grid
         self.playerPosition = grid.start
         self.isFinished = false
+        self.currentLevel = 1
     }
     
     @discardableResult
@@ -91,9 +132,26 @@ final class LabyrinthViewModel {
         }
         playerPosition = next
         if tile == .exit {
-            isFinished = true
+            if currentLevel < maxLevels {
+                nextLevel()
+            } else {
+                isFinished = true
+            }
         }
         return true
+    }
+    
+    private func nextLevel() {
+        currentLevel += 1
+        switch currentLevel {
+        case 2:
+            grid = .level2
+        case 3:
+            grid = .level3
+        default:
+            grid = .level1
+        }
+        playerPosition = grid.start
     }
     
     private func nextPosition(from position: LabyrinthPosition, direction: LabyrinthDirection) -> LabyrinthPosition {

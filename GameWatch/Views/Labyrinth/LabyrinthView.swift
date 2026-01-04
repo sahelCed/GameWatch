@@ -17,7 +17,7 @@ struct LabyrinthView: View {
     
     var body: some View {
         VStack(spacing: 12) {
-            Text("Labyrinthe")
+            Text("Labyrinthe - Niveau \(labyrinth.currentLevel)/\(labyrinth.maxLevels)")
                 .font(.title2.bold())
                 .foregroundStyle(.white)
             Text(gameViewModel.getTimer())
@@ -29,9 +29,13 @@ struct LabyrinthView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             if labyrinth.isFinished {
-                Text("Sortie atteinte !")
+                Text("Tous les niveaux terminés !")
                     .foregroundStyle(.green)
                     .font(.headline)
+            } else if labyrinth.currentLevel > 1 && !lastMoveAccepted {
+                Text("Niveau \(labyrinth.currentLevel - 1) terminé ! Niveau \(labyrinth.currentLevel) en cours...")
+                    .foregroundStyle(.green)
+                    .font(.subheadline)
             } else if !lastMoveAccepted {
                 Text("Mouvement bloqué")
                     .foregroundStyle(.orange)
@@ -45,6 +49,16 @@ struct LabyrinthView: View {
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
+        .onAppear {
+            Connectivity.shared.send([
+                LabyrinthMessageKeys.action: LabyrinthMessageKeys.labyrinthStartAction
+            ])
+        }
+        .onDisappear {
+            Connectivity.shared.send([
+                LabyrinthMessageKeys.action: LabyrinthMessageKeys.labyrinthEndAction
+            ])
+        }
         .onReceive(NotificationCenter.default.publisher(for: .labyrinthMove)) { notif in
             guard let direction = notif.userInfo?[LabyrinthMessageKeys.direction] as? LabyrinthDirection else { return }
             let moved = labyrinth.move(direction)

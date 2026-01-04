@@ -12,4 +12,10 @@ enum LabyrinthMessageKeys {
     static let direction = "direction"
     static let moveAction = "labyrinthMove"
     static let stateAction = "labyrinthState"
+    static let gameStartAction = "gameStart"
+    static let labyrinthStartAction = "labyrinthStart"
+    static let labyrinthEndAction = "labyrinthEnd"
+    static let timerUpdateAction = "timerUpdate"
+    static let playerName = "playerName"
+    static let timeRemaining = "timeRemaining"
 }

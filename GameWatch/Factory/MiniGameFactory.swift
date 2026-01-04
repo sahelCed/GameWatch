@@ -29,9 +29,9 @@ class MiniGameFactory {
             let instruction = "Répétez les séquences sur votre montre."
             return MiniGame(name: name, instruction: instruction, isCompleted: false, type: .simonSays, image: "simon_image")
         case .labyrinth:
-            let name = "Labyrinthe ESGI"
+            let name = "Évasion du Labyrinthe ESGI"
             let instruction = "Atteignez la sortie en vous déplaçant case par case."
-            return MiniGame(name: name, instruction: instruction, isCompleted: false, type: .labyrinth, image: "empty_room")
+            return MiniGame(name: name, instruction: instruction, isCompleted: false, type: .labyrinth, image: "Logo_labyrinthe")
         case .finalLock:
             let name = "Le tiroir secret du tyran"
             let instruction = "Entrez le code pour dévérouiller le tiroir."

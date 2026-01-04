@@ -16,28 +16,35 @@ struct HomeView: View {
             VStack(spacing: 12) {
                 ZStack {
                     Color.black.ignoresSafeArea()
-                    Image("logo.png")
+                    Image("logo")
                         .resizable()
                         .scaledToFill()
                         .opacity(viewModel.isPulsing ? 0.33 : 1)
                         .ignoresSafeArea()
-                    Text("Waiting for game...")
-                        .foregroundColor(.red)
-                        .font(.title2.bold())
+                    
+                    if viewModel.gameStarted {
+                        VStack {
+                            Text(viewModel.playerName)
+                                .foregroundColor(.green)
+                                .font(.title3.bold())
+                            Text(viewModel.timeRemaining)
+                                .foregroundColor(.white)
+                                .font(.title2.bold())
+                        }
                         .padding()
-                        .opacity(viewModel.isPulsing ? 1 : 0.1)
-                        .ignoresSafeArea()
+                    } else {
+                        Text("Waiting for game...")
+                            .foregroundColor(.red)
+                            .font(.title2.bold())
+                            .padding()
+                            .opacity(viewModel.isPulsing ? 1 : 0.1)
+                    }
                 }
                 .frame(height: 120)
                 
-                NavigationLink {
-                    LabyrinthControlsView()
-                } label: {
-                    Text("Contrôles Labyrinthe")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.blue)
+            }
+            .navigationDestination(isPresented: $viewModel.shouldNavigateToLabyrinth) {
+                LabyrinthControlsView()
             }
             .onAppear {
                 withAnimation(

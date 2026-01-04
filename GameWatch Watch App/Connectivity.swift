@@ -64,6 +64,12 @@ extension Connectivity: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         DispatchQueue.main.async {
             self.lastMessage = message
+            
+            NotificationCenter.default.post(
+                name: .watchGameMessage,
+                object: nil,
+                userInfo: message
+            )
         }
     }
 }
