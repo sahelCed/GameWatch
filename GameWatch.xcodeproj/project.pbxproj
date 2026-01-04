@@ -68,6 +68,7 @@
 				models/MiniGame.swift,
 				models/Room.swift,
 				models/RoomLocation.swift,
+				Repository/LabyrinthRepository.swift,
 				Repository/RoomsRepository.swift,
 				ViewModels/GameViewModel.swift,
 				ViewModels/LabyrinthViewModel.swift,
@@ -80,6 +81,7 @@
 				Views/Game/Room/RoomView.swift,
 				Views/Game/SpeechBubble/SpeechBubbleView.swift,
 				Views/Game/SpeechBubble/UniversalBubbleShape.swift,
+				Views/Labyrinth/Components/LabyrinthGridView.swift,
 				Views/Labyrinth/LabyrinthView.swift,
 			);
 			target = 33B033992EDF5AD100C013AA /* GameWatch Watch App */;
@@ -474,7 +476,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,7 +513,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,107 +7,6 @@
 
 import Foundation
 
-struct LabyrinthGrid: Codable {
-    let width: Int
-    let height: Int
-    let tiles: [[LabyrinthTile]]
-    let start: LabyrinthPosition
-    let exit: LabyrinthPosition
-    
-    init(tiles: [[LabyrinthTile]], start: LabyrinthPosition, exit: LabyrinthPosition) {
-        self.tiles = tiles
-        self.height = tiles.count
-        self.width = tiles.first?.count ?? 0
-        self.start = start
-        self.exit = exit
-    }
-    
-    func tile(at position: LabyrinthPosition) -> LabyrinthTile? {
-        guard position.x >= 0, position.y >= 0, position.y < height, position.x < width else {
-            return nil
-        }
-        return tiles[position.y][position.x]
-    }
-    
-    static var level1: LabyrinthGrid {
-        let layout: [String] = [
-            "########",
-            "#S....##",
-            "#.##..##",
-            "#..#..##",
-            "##.#..##",
-            "#..#..##",
-            "#...E.##",
-            "########"
-        ]
-        return LabyrinthGrid.fromLayout(layout)
-    }
-    
-    static var level2: LabyrinthGrid {
-        let layout: [String] = [
-            "##########",
-            "#S.#....##",
-            "#.##.##.##",
-            "#....##.##",
-            "####.##.##",
-            "#....##.##",
-            "#.####..##",
-            "#.......##",
-            "####.##E##",
-            "##########"
-        ]
-        return LabyrinthGrid.fromLayout(layout)
-    }
-    
-    static var level3: LabyrinthGrid {
-        let layout: [String] = [
-            "############",
-            "#S.#.....###",
-            "#.##.###.###",
-            "#....###...#",
-            "####.###.#.#",
-            "#....###.#.#",
-            "#.####...#.#",
-            "#.#####.##.#",
-            "#.......##.#",
-            "####.####..#",
-            "#........E.#",
-            "############"
-        ]
-        return LabyrinthGrid.fromLayout(layout)
-    }
-    
-    private static func fromLayout(_ layout: [String]) -> LabyrinthGrid {
-        var tiles: [[LabyrinthTile]] = []
-        var start = LabyrinthPosition(x: 1, y: 1)
-        var exit = LabyrinthPosition(x: 1, y: 1)
-        
-        for (y, row) in layout.enumerated() {
-            var line: [LabyrinthTile] = []
-            for (x, char) in row.enumerated() {
-                switch char {
-                case "#": line.append(.wall)
-                case "E":
-                    line.append(.exit)
-                    exit = LabyrinthPosition(x: x, y: y)
-                case "S":
-                    line.append(.path)
-                    start = LabyrinthPosition(x: x, y: y)
-                default:
-                    line.append(.path)
-                }
-            }
-            tiles.append(line)
-        }
-        return LabyrinthGrid(tiles: tiles, start: start, exit: exit)
-    }
-}
-
-struct LabyrinthPosition: Codable, Hashable {
-    var x: Int
-    var y: Int
-}
-
 @Observable
 final class LabyrinthViewModel {
     private(set) var grid: LabyrinthGrid
@@ -116,7 +15,7 @@ final class LabyrinthViewModel {
     private(set) var currentLevel: Int = 1
     let maxLevels: Int = 3
     
-    init(grid: LabyrinthGrid = .level1) {
+    init(grid: LabyrinthGrid = LabyrinthRepository.level1) {
         self.grid = grid
         self.playerPosition = grid.start
         self.isFinished = false
@@ -145,11 +44,11 @@ final class LabyrinthViewModel {
         currentLevel += 1
         switch currentLevel {
         case 2:
-            grid = .level2
+            grid = LabyrinthRepository.level2
         case 3:
-            grid = .level3
+            grid = LabyrinthRepository.level3
         default:
-            grid = .level1
+            grid = LabyrinthRepository.level1
         }
         playerPosition = grid.start
     }

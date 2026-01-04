@@ -65,17 +65,33 @@ extension Connectivity: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         DispatchQueue.main.async {
             self.lastMessage = message
-            
-            if let action = message[LabyrinthMessageKeys.action] as? String,
-               action == LabyrinthMessageKeys.moveAction,
-               let directionString = message[LabyrinthMessageKeys.direction] as? String,
-               let direction = LabyrinthDirection(rawValue: directionString) {
-                NotificationCenter.default.post(
-                    name: .labyrinthMove,
-                    object: nil,
-                    userInfo: [LabyrinthMessageKeys.direction: direction]
-                )
-            }
+            self.handleReceivedMessage(message)
         }
+    }
+    
+    private func handleReceivedMessage(_ message: [String: Any]) {
+        guard let action = message[LabyrinthMessageKeys.action] as? String else { return }
+        
+        switch action {
+        case LabyrinthMessageKeys.moveAction:
+            handleLabyrinthMove(message)
+            
+        // case "simonMove":
+        //     handleSimonMove(message)
+        
+        default:
+            break
+        }
+    }
+    
+    private func handleLabyrinthMove(_ message: [String: Any]) {
+        guard let directionString = message[LabyrinthMessageKeys.direction] as? String,
+              let direction = LabyrinthDirection(rawValue: directionString) else { return }
+        
+        NotificationCenter.default.post(
+            name: .labyrinthMove,
+            object: nil,
+            userInfo: [LabyrinthMessageKeys.direction: direction]
+        )
     }
 }
