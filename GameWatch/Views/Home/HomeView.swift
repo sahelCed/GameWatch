@@ -25,7 +25,6 @@ struct HomeView: View {
                     Spacer()
                     
                     StartGameButton(isConnected: viewModel.isWatchConnected) {
-                        
                         if viewModel.isWatchConnected {
                             viewModel.presentingCreateGame.toggle()
                         }

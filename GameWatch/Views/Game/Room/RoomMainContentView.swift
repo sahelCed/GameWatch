@@ -13,6 +13,8 @@ struct RoomMainContentView: View {
     
     let stepId: UUID
     
+    @Environment(\.dismiss) private var dismiss
+    
     var step: GameStep {
         return viewModel.game.steps.first(where: { $0.id == stepId })!
     }
@@ -53,6 +55,9 @@ struct RoomMainContentView: View {
                     Button {
                         withAnimation {
                             viewModel.completeStep(step: step.id)
+                            if step.miniGame.type == .exit  && step.miniGame.isCompleted {
+                                 dismiss()
+                            }
                         }
                     } label: {
                         Image(step.miniGame.image)
@@ -87,7 +92,7 @@ struct RoomMainContentView: View {
 #Preview {
     let game = GameViewModel(game: GameFactory.gameFrom(difficulty: .easy, options: GameOptions(soundEnabled: false, hapticsEnabled: false, gameExplanationsEnabled: false), name: ""))
     
-    let step = game.game.steps.first(where: { $0.miniGame.type == .search })!
+    let step = game.game.steps.first(where: { $0.miniGame.type == .exit })!
     
     GeometryReader { geo in
         RoomMainContentView(viewModel: game, stepId: step.id, buttonSize: geo.size.width * 0.3)

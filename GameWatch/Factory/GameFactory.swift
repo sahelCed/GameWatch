@@ -24,7 +24,7 @@ class GameFactory {
                 duration = .minutes(3)
                 penality = 10
             case .hard:
-            duration = .minutes(2)
+                duration = .minutes(2)
                 penality = 30
         }
         

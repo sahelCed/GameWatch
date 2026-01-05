@@ -75,7 +75,7 @@ struct GameOverView: View {
         vm.game.steps[i].miniGame.isCompleted = true
     }
     
-    vm.gameState = .won
+    vm.gameState = .lost
     
     return GameOverView(viewModel: vm)
 }

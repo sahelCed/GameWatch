@@ -47,6 +47,7 @@
 			membershipExceptions = (
 				Enums/BubbleDirection.swift,
 				Enums/GameDifficulty.swift,
+				Enums/GameState.swift,
 				Enums/LabyrinthDirection.swift,
 				Enums/LabyrinthMessageKeys.swift,
 				Enums/LabyrinthTile.swift,
@@ -70,8 +71,13 @@
 				models/RoomLocation.swift,
 				Repository/LabyrinthRepository.swift,
 				Repository/RoomsRepository.swift,
+				ViewModels/FinalLockViewModel.swift,
 				ViewModels/GameViewModel.swift,
 				ViewModels/LabyrinthViewModel.swift,
+				Views/Game/EndGame/GameOverView.swift,
+				Views/Game/EndGame/GameResumeView.swift,
+				Views/Game/FinalLockGame/CryptexView.swift,
+				Views/Game/FinalLockGame/FinalLockView.swift,
 				Views/Game/GameContextView.swift,
 				Views/Game/GameMainView.swift,
 				Views/Game/GameRootView.swift,
@@ -399,18 +405,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7FXGCCT42C;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = gilberto.GameWatch;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = yanislammari.GameWatch;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = gilberto.GameWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = yanislammari.GameWatch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -432,18 +438,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7FXGCCT42C;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = gilberto.GameWatch;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = yanislammari.GameWatch;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = gilberto.GameWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = yanislammari.GameWatch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -467,7 +473,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7FXGCCT42C;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
@@ -482,7 +488,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = gilberto.GameWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = yanislammari.GameWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -504,7 +510,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7FXGCCT42C;
+				DEVELOPMENT_TEAM = WA55KD5NGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWatch;
@@ -519,7 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = gilberto.GameWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = yanislammari.GameWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;

@@ -50,7 +50,6 @@ class GameViewModel {
     private func updateTimer() {
         if timeRemaining > 0 {
             timeRemaining -= 1
-            // Envoyer la mise à jour du timer à la Watch
             Connectivity.shared.send([
                 LabyrinthMessageKeys.action: LabyrinthMessageKeys.timerUpdateAction,
                 LabyrinthMessageKeys.timeRemaining: timeRemaining
@@ -67,6 +66,10 @@ class GameViewModel {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
+    func getPenality() -> String {
+        let penality = Int(game.penality)
+        return String(format: "%02d", penality)
+    }
     
     func completeStep(step: UUID) {
         if let index = game.steps.firstIndex(where: { $0.id == step }) {
@@ -79,6 +82,9 @@ class GameViewModel {
                     stopTimer()
                     gameState = .won
                 }
+            } else if type == .finalLock {
+                game.hasKey = true
+                game.steps[index].miniGame.isCompleted = true
             } else {
                 game.steps[index].miniGame.isCompleted = true
             }
