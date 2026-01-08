@@ -32,6 +32,10 @@ class MiniGameFactory {
             let name = "Évasion du Labyrinthe ESGI"
             let instruction = "Atteignez la sortie en vous déplaçant case par case."
             return MiniGame(name: name, instruction: instruction, isCompleted: false, type: .labyrinth, image: "Logo_labyrinthe")
+        case .tapCounter:
+            let name = "Le mécanisme de jeu croisée"
+            let instruction = "Trouver les mots dans le temps imparti pour activer le mécanisme."
+            return MiniGame(name: name, instruction: instruction, isCompleted: false, type: .tapCounter, image: "simon_image")
         case .finalLock:
             let name = "Le tiroir secret du tyran"
             let instruction = "Entrez le code pour dévérouiller le tiroir."

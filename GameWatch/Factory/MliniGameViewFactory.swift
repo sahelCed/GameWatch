@@ -16,6 +16,8 @@ func viewForMiniGame(game: GameViewModel, step: GameStep) -> some View {
         FinalLockView(game: game, step: step)
     case .labyrinth:
         LabyrinthView(gameViewModel: game, stepId: step.id)
+    case .tapCounter:
+        TapCounterView(game: game, step: step)
     default:
         Text("Jeu inconnu")
     }

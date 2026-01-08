@@ -72,6 +72,7 @@
 				models/RoomLocation.swift,
 				Repository/LabyrinthRepository.swift,
 				Repository/RoomsRepository.swift,
+				Repository/WordSearchRepository.swift,
 				ViewModels/FinalLockViewModel.swift,
 				ViewModels/GameViewModel.swift,
 				ViewModels/LabyrinthViewModel.swift,
@@ -90,6 +91,7 @@
 				Views/Game/SimonSays/SimonSaysView.swift,
 				Views/Game/SpeechBubble/SpeechBubbleView.swift,
 				Views/Game/SpeechBubble/UniversalBubbleShape.swift,
+				Views/Game/TapCounter/TapCounterView.swift,
 				Views/Labyrinth/Components/LabyrinthGridView.swift,
 				Views/Labyrinth/LabyrinthView.swift,
 			);
