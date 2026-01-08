@@ -55,9 +55,6 @@ struct RoomMainContentView: View {
                     Button {
                         withAnimation {
                             viewModel.completeStep(step: step.id)
-                            if step.miniGame.type == .exit  && step.miniGame.isCompleted {
-                                 dismiss()
-                            }
                         }
                     } label: {
                         Image(step.miniGame.image)

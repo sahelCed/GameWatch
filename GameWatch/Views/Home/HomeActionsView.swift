@@ -30,18 +30,7 @@ struct HomeActionsView: View {
                 .buttonBorderShape(.roundedRectangle)
                 .tint(.teal)
                 .padding(.top, 54)
-                
-                Button {
-                    
-                } label: {
-                    HStack {
-                        Image(systemName: "flag.pattern.checkered.2.crossed")
-                        Text("Leaderboards")
-                        Image(systemName: "flag.pattern.checkered.2.crossed")
-                    }
-                }
-                .buttonStyle(.glassProminent)
-                .tint(.teal)
+    
             }
         }
     }

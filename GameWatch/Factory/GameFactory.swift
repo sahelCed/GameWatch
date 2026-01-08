@@ -12,9 +12,11 @@ class GameFactory {
     static func gameFrom(difficulty: GameDifficulty, options: GameOptions, name: String) -> Game {
         let secretCode = SecretCodeFactory.generate()
         var clues = ClueFactory.generateClues(from: secretCode)
-        
+        print(secretCode)
         let duration: TimeInterval
         let penality: Double
+        let playerName = name.isEmpty ? "Player" : name
+        
         
         switch difficulty {
             case .easy:
@@ -34,7 +36,7 @@ class GameFactory {
                 
         return Game(
             duration: duration,
-            name: name,
+            name: playerName,
             steps: steps,
             secretCode: secretCode,
             options: options,
