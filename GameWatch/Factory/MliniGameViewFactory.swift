@@ -11,7 +11,7 @@ import SwiftUI
 func viewForMiniGame(game: GameViewModel, step: GameStep) -> some View {
     switch step.miniGame.type {
     case .simonSays:
-        Text("Vue Simon Says à implémenter")
+        SimonSaysView(game: game, step: step)
     case .finalLock:
         FinalLockView(game: game, step: step)
     case .labyrinth:
